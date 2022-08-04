@@ -28,3 +28,13 @@ Use query operations over scan.
 - DynamoDB has extreme scaling handling millions of queries per second.
 - Supports tables of any size.
 - Updates are instant
+
+## PutItem
+
+- By default PutItem returns no data.
+- Use the ReturnValues parameter on input to instruct DynamoDB to return attributes. (options include ALL_OLD, ALL_NEW etc)
+- Use conditional expressions to identify if a partition key already exists in the table thus preventing unexpected overwrites.
+
+## Choosing a UUID
+
+- Use a UUID generator package based on [RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html). No centralized authority is required to administer them. The UUID's described in this specification are 128 bits long and can guarantee uniqueness across space and time. A Go implementation is https://github.com/google/uuid

@@ -37,4 +37,5 @@ Use query operations over scan.
 
 ## Choosing a UUID
 
-- Use a UUID generator package based on [RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html). No centralized authority is required to administer them. The UUID's described in this specification are 128 bits long and can guarantee uniqueness across space and time. A Go implementation is https://github.com/google/uuid
+- Use a UUID generator package based on [RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html). No centralized authority is required to administer. The UUID's described in this specification are 128 bits long and can guarantee uniqueness across space and time. A Go implementation available from https://github.com/google/uuid.
+- UUID generaters are less error prone then a solution using DynamoDB tables which need to coordinate the primary key counter using atomic ADD operations.

@@ -34,6 +34,8 @@ Use query operations over scan.
 - By default PutItem returns no data.
 - Use the ReturnValues parameter on input to instruct DynamoDB to return attributes. (options include ALL_OLD, ALL_NEW etc)
 - Use conditional expressions to identify if a partition key already exists in the table thus preventing unexpected overwrites.
+- There is no additional cost assoicated with requesting return value from PutItem operation. Aside from the processing overhead of receiving a larger response. No reach capacity units are consumed.
+- PutItem only recognizes NONE or ALL_OLD values for ReturnValues attribute.
 
 ## Choosing a UUID
 

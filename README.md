@@ -36,6 +36,14 @@ Use query operations over scan.
 - Use conditional expressions to identify if a partition key already exists in the table thus preventing unexpected overwrites.
 - There is no additional cost assoicated with requesting return value from PutItem operation. Aside from the processing overhead of receiving a larger response. No reach capacity units are consumed.
 - PutItem only recognizes NONE or ALL_OLD values for ReturnValues attribute.
+- 1 WCU per 1024bytes (1kb). Items can be up to 400kb creating a range between 1 and 400 WCU.
+- Item size is sum of all its attributes sizes (name and value) and including hash and range keys.
+- String and StringSet unicode with UTF-8 binary encoding. Consume between 1 and 4 bytes.
+- 1 byte = English alphabet,numbers, punctuation , common symbols
+- 2 bytes = pound sign, some languages like German
+- 3 bytes = See docs , example Japenese language characters
+- 4 bytes - emojis
+- StringSet is a collection of strings - sum sizes of each string in the set
 
 ## Choosing a UUID
 

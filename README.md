@@ -45,6 +45,15 @@ Use query operations over scan.
 - 4 bytes - emojis
 - StringSet is a collection of strings - sum sizes of each string in the set
 
+| Partition key | Sort Key | Attribute1|
+| UUID | COUNTRY-REG-CITY| Name |
+UUID - 4 BYTES , COUNTRY - 7 bytes, - 1 byte, REG - 3 bytes, - 1 byte, CITY - 4 bytes, ADDR - 4 bytes
+TOTAL 24 BYTES per header
+
+Sample Row
+| 93f2528d-0a9d-4b3d-822b-b1c93d05db57 | Ireland#Connaught#Galway | Joe Bloggs |
+37 bytes | 24 bytes | 10 bytes
+
 ## Choosing a UUID
 
 - Use a UUID generator package based on [RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html). No centralized authority is required to administer. The UUID's described in this specification are 128 bits long and can guarantee uniqueness across space and time. A Go implementation available from https://github.com/google/uuid.

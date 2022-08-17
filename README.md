@@ -45,6 +45,14 @@ Use query operations over scan.
 - 4 bytes - emojis
 - StringSet is a collection of strings - sum sizes of each string in the set
 
+## DynamoDB Streams
+
+- Streams are a mechanism for tracking changes to a table.
+- Events can be streamed to DynamodDB streams or a Kineses steam
+- Kinesis streams more suitable for large volumes of data
+- DynamodDB streams suitable to track item changes to a table
+
+
 ## Choosing a UUID
 
 - Use a UUID generator package based on [RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html). No centralized authority is required to administer. The UUID's described in this specification are 128 bits long and can guarantee uniqueness across space and time. A Go implementation available from https://github.com/google/uuid.

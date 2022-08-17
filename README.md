@@ -59,6 +59,11 @@ Use query operations over scan.
   - New image - the entire item, as it became after it was modified, is streamed
   - Old image - the entire item, as it was just before it was modified, is streamed
   - New and old images - both the new and the old images of the item are streamed
+- Streams data is retained for 24hours. After that if no consumer has read the data it will be lost.
+- Lambda functions can be used to consume the stream data.
+- Lambda polls the shards in the DynamodDB stream for records at a base rate of 4 times per second. 
+- By default, Lambda invokes your function as soon as records are available. If the batch that Lambda reads from the event source has only a single record, Lambda will send only one record to the function. 
+- To avoid invoking the function with a small number of records, you can configure Lambda to invoke the function only after a certain amount of time by configuring a batching window.
 
 
 ## Choosing a UUID

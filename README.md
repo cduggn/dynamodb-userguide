@@ -49,8 +49,16 @@ Use query operations over scan.
 
 - Streams are a mechanism for tracking changes to a table.
 - Events can be streamed to DynamodDB streams or a Kineses steam
-- Kinesis streams more suitable for large volumes of data
-- DynamodDB streams suitable to track item changes to a table
+- Kinesis streams are more suitable for large volumes of data
+- DynamodDB streams are suitable to track the granular changes to a table item
+- DDB Streams are charged based on the amount of data streamed and not on what data is returned.
+- DDB Streams are free to scale to millions of records per second.
+- DDB Streams record all changees to all items in the exact order they happen
+- When DDB streams is enabled different options exist to control the data being streamed
+  - Keys only - only the key attributes of the modified item are streamed
+  - New image - the entire item, as it became after it was modified, is streamed
+  - Old image - the entire item, as it was just before it was modified, is streamed
+  - New and old images - both the new and the old images of the item are streamed
 
 
 ## Choosing a UUID

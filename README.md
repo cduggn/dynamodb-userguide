@@ -22,6 +22,8 @@ Use query operations over scan.
 - Local secondary indexes rely on the same partition key as the primary index but allow you to choose a different sort key.
 - Global secondary indexes allow for the creation of a completely new composite key index.
 - The smaller your requests are the less you are charged. Keep records small to consume minimal units needed. Choose small attribute values and names.
+- Use [Document paths](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Attributes.html#Expressions.Attributes.NestedElements.DocumentPathExamples) in query expression when using map and/or list types instead of plain JSON strings.  
+
 
 ## Scaling
 
@@ -64,7 +66,7 @@ Use query operations over scan.
 - Lambda polls the shards in the DynamodDB stream for records at a base rate of 4 times per second. 
 - By default, Lambda invokes your function as soon as records are available. If the batch that Lambda reads from the event source has only a single record, Lambda will send only one record to the function. 
 - To avoid invoking the function with a small number of records, you can configure Lambda to invoke the function only after a certain amount of time by configuring a batching window.
-
+- Records are sent to Lambda either when the batching window expires or when the 6MB payload limit is reached.
 
 ## Choosing a UUID
 
